@@ -1,0 +1,198 @@
+.header{
+    position: relative;
+}
+.navbar-backgroundColor{
+    background-color: whitesmoke;
+    padding: 8px 3rem;
+}
+
+.logo-svg{
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.logo-title{
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: oblique;
+    color: #2A55E5;
+}
+
+.form-control:focus {
+    color: #333333;
+    background-color: #FFFFFF;
+    border-color: #dee2e6;
+    outline: 0;
+    box-shadow: none;
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333333;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+    border: 1px solid #dee2e6;
+    border-left: none !important;
+    border-radius: 5px;
+}
+
+.login-cart{
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 6px 10px 0 0;
+    cursor: pointer;
+}
+
+.login-text{
+    font-size: 1rem;
+    padding-top: 8px;
+    font-weight: 500;
+    color: #333333;
+    font-style: italic;
+}
+
+.cart-icon{
+    color: #333333;
+    font-size: 1.5rem;
+    padding-right: 15px;
+}
+
+.cart-count{
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2A55E5;
+}
+
+.cart-card{
+    /* position: absolute;
+    top: -14px;
+    right: 257px;
+    z-index: 9999; */
+    position: fixed;
+    top: 60px;
+    right: 232px;
+    z-index: 9999;
+    width: 40%;
+}
+
+.items-mainCard{
+    background-color: whitesmoke;
+    height: 87vh;
+}
+
+.checkout-card{
+    height: 50vh;
+    overflow-y: scroll;
+    /* overflow-y: scroll;
+    overflow-x: hidden;
+    width: 83%; */
+}
+
+
+.decrementBtn{
+    background-color: #2A55E5;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.incrementBtn{
+    background-color: #2A55E5;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+/* .checkout-card .card{
+    width: 98%;
+} */
+
+/* .price-card .card{
+    width: 90%;
+} */
+
+.item-card{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.item-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.item-options{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-card .card-body {
+    padding: 1.5rem 1rem;
+    border-right: 1px solid #ebe9f1;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 992px) {
+    .navbar-backgroundColor {
+        padding: 8px 1rem;
+    }
+
+    .logo-svg {
+        font-size: 1.2rem;
+    }
+
+    .logo-title {
+        font-size: 1rem;
+    }
+
+    .input-group-merge {
+        margin-right: 1rem;
+    }
+
+    .cart-card {
+        width: 70%;
+        right: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-backgroundColor {
+        padding: 8px 0.5rem;
+    }
+
+    .logo-svg {
+        font-size: 1.1rem;
+    }
+
+    .logo-title {
+        font-size: 0.9rem;
+    }
+
+    .input-group-merge {
+        display: none; 
+    }
+
+    .cart-card {
+        width: 90%;
+        right: 5%;
+    }
+}

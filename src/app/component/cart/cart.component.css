@@ -1,0 +1,103 @@
+.card{
+    height: auto;
+    margin: 25px;
+    padding: 25px;
+}
+
+
+
+.card-table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: none;
+    word-wrap: break-word;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 0.25rem;
+}
+
+.center .btn{
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: 400;
+    padding: 10px 72px;
+    border-radius: 3px;
+}
+
+
+.cart-description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50ch;
+    font-size: 0.915rem;
+    font-weight: 400;
+    color: #7D7C7C;
+}
+
+.items-mainCard{
+    background-color: whitesmoke;
+    height: 87vh;
+}
+
+.checkout-card{
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 83%;
+}
+
+
+.decrementBtn{
+    background-color: #2A55E5;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.incrementBtn{
+    background-color: #2A55E5;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.checkout-card .card{
+    width: 98%;
+}
+
+.price-card .card{
+    width: 90%;
+}
+
+.item-card{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.item-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.item-options{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-card .card-body {
+    padding: 1.5rem 1rem;
+    border-right: 1px solid #ebe9f1;
+    display: flex;
+    flex-direction: column;
+}

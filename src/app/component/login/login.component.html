@@ -1,0 +1,74 @@
+<div class="content-body">
+    <div class="auth-wrapper auth-cover">
+        <div class="auth-inner row m-0">
+
+            <!-- Left Text-->
+            <div class="d-none d-lg-flex col-lg-7 align-items-center p-5">
+                <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
+                    <img class="img-fluid" src="../../../assets/images/login-v1.svg" alt="Login V2" />
+                </div>
+            </div>
+            <!-- /Left Text-->
+            <!-- Login-->
+            <div class="card d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
+                    <h2 class="card-title fw-bold mb-1">Welcome to <strong>Flipkart</strong></h2>
+                    <p class="card-text mb-2">Please sign-in to your account and start the shopping</p>
+                    <form class="auth-login-form mt-2" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-2">
+                            <label class="form-label" for="email">Email</label>
+                            <input class="form-control" id="email" formControlName="email" type="text" name="email"
+                                placeholder="john@example.com" aria-describedby="email" autofocus=""
+                                tabindex="1" />
+                                <div *ngIf="f.email.touched && f.email.errors?.required" class="text-danger">
+                                    Email is required
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <label class="form-label" for="password">Password</label><a
+                                    routerLink="/forgotPassword" target="_blank"><small>Forgot Password?</small></a>
+                            </div>
+                            <div class="input-group input-group-merge form-password-toggle">
+                                <input class="form-control form-control-merge" formControlName="password" id="password" type="password"
+                                    name="password" placeholder="············" aria-describedby="password"
+                                    tabindex="2" />
+                                    <div *ngIf="f.password.touched && f.password.errors?.required" class="text-danger">
+                                        Password is required
+                                      </div>
+                                    <!-- <span class="input-group-text cursor-pointer"><i class="fas fa-eye-slash"></i></span> -->
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" id="remember-me" type="checkbox" tabindex="3" />
+                                <label class="form-check-label" for="remember-me"> Remember Me</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
+                    </form>
+                    <p class="text-center mt-2"><span>Didn't register</span><a
+                            routerLink="/signup"><span>&nbsp;Create an account</span></a></p>
+                    <div class="divider my-2">
+                        <div class="divider-text">or</div>
+                    </div>
+                    <div class="auth-footer-btn d-flex justify-content-center">
+                        <a class="btn btn-facebook" href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="btn btn-twitter white" href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-google" href="#">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a class="btn btn-github" href="#">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Login-->
+        </div>
+    </div>
+</div>
