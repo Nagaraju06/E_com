@@ -13,8 +13,7 @@ import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import {ToastModule} from 'primeng/toast';
-import { RippleModule } from 'primeng/ripple';
-
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -35,9 +34,8 @@ import { RippleModule } from 'primeng/ripple';
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
-    RippleModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

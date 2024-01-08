@@ -9,7 +9,6 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-top: none;
     border-radius: 0.25rem;
-    /* margin-top: 4.5rem; */
 }
 
 .item{
@@ -41,8 +40,6 @@
 }
 
 .card:hover{
-    /* transition: 0.3s ease-in-out;
-    transform: scale(1.1); */
     transform: translateY(-5px);
     box-shadow: 0 4px 25px 0 rgba(34, 41, 47, 0.25);
 }
@@ -74,10 +71,6 @@
     transition: 0.3s ease-in-out;
 }
 
-/* .card img:hover{
-    transition: 0.3s ease-in-out;
-    transform: scale(1.1);
-} */
 
 .addToCart{
     background: #2A55E5;
@@ -91,6 +84,12 @@
     border-radius: 4px;
     border: none;
     border-width: 0;
+}
+
+.no-data-image{
+    height: 70vh;
+    width: 30%;
+
 }
 
 @media (max-width: 768px) {
@@ -120,5 +119,9 @@
     .addToCart {
         height: 30px;
         width: 100px;
+    }
+
+    .no-data-image{
+        width: 100%;
     }
 }

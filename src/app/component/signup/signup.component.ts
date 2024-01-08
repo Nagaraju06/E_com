@@ -3,20 +3,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../_helpers/must-match.validators';
 import { Router } from '@angular/router';
 import {MessageService} from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
+import { AuthenticationService } from 'src/app/service/authentication.service';
+import { User } from 'src/app/interface/user';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
   registerForm: any = FormGroup;
   profilePictureBase64: any;
   // submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(private formBuilder: FormBuilder, private router: Router,private messageService: MessageService, private authService: AuthenticationService) { }
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -29,7 +29,6 @@ export class SignupComponent implements OnInit {
     {
       validators: MustMatch('password', 'confirmPassword')
     });
-    this.primengConfig.ripple = true;
   }
 
   get f() {return this.registerForm.controls}
@@ -46,7 +45,20 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(){
-    // this.submitted = true;
+    const postData = {...this.registerForm.value }
+    delete postData.confirmPassword;
+    this.authService.registerUser(postData as User).subscribe(
+      res =>{
+        console.log(res);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Successfully' });
+        this.registerForm.reset()
+        this.router.navigateByUrl('/login');
+      },
+      err => {
+        console.log(err);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      }
+    )
 
     Object.values(this.registerForm.controls).forEach((control:any) =>{
       control.markAsTouched();

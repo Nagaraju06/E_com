@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "c680",
+      "firstName": "Nagaraju",
+      "lastName": "Chiluka",
+      "email": "nagaraju@gmail.com",
+      "password": "Raju@12345",
+      "profile": ""
+    },
+    {
+      "id": "83c8",
+      "firstName": "Faizan",
+      "lastName": "Ansari",
+      "email": "faizan.ansari@gmail.com",
+      "password": "Faizan@12345",
+      "profile": ""
+    }
+  ]
+}

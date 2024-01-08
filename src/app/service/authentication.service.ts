@@ -1,29 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../interface/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  private baseUrl = 'http://localhost:3000';
+
+  constructor(private http: HttpClient) { }
 
   isLoggedIn(): boolean {
-    // Check if the user is logged in by validating the presence of user credentials
     return !!localStorage.getItem('user_credentials');
   }
 
-  authenticate(email:string, password: string): boolean {
-    const storedCredentials = localStorage.getItem("user_credentials");
+  // authenticate(email:string, password: string): boolean {
+  //   const storedCredentials = localStorage.getItem("user_credentials");
 
-    if(storedCredentials){
-      const userCredentials = JSON.parse(storedCredentials);
-      return email === userCredentials.email && password === userCredentials.password;
-    }
-    return false;
+  //   if(storedCredentials){
+  //     const userCredentials = JSON.parse(storedCredentials);
+  //     return email === userCredentials.email && password === userCredentials.password;
+  //   }
+  //   return false;
+  // }
+
+  registerUser(userDetails: User) {
+    return this.http.post(`${this.baseUrl}/users`, userDetails);
+  }
+
+  getUserByEmail(email: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);
   }
 
   getUserInfo(): any {
-    // Retrieve user credentials from localStorage
     const storedCredentials = localStorage.getItem('user_credentials');
 
     if (storedCredentials) {
@@ -34,7 +45,6 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    // Clear user credentials on logout
     localStorage.removeItem('user_credentials');
   }
 }

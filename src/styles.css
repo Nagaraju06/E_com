@@ -1,28 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
 body{
     font-family: system-ui;
-    /* letter-spacing: 1px;
-    word-wrap: break-word; */
 }
 
 ::-webkit-scrollbar {
-    /* width: 0.3rem; */
     width: 3px;
   }
    
 ::-webkit-scrollbar-track {
-    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
   }
    
 ::-webkit-scrollbar-thumb {
-    /* background-color: darkgrey;
-    outline: 1px solid slategrey; */
     background-color: #b8b8b8;
 }
 
 a {
     text-decoration: none;
-    /* color: #658BE2; */
     color: #0947d4;
 }
 

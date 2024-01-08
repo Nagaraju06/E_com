@@ -19,53 +19,27 @@ export class CartComponent implements OnInit {
         this.products = this.getUniqueProducts(res);
         this.grandTotal = this.cartService.getTotalPrice();
       });
-    // this.loadCartData();
   }
 
-  // loadCartData(): void {
-  //   const cartData = localStorage.getItem('cart');
-  //   if (cartData) {
-  //     this.products = JSON.parse(cartData);
-  //     this.grandTotal = this.cartService.getTotalPrice();
-  //     console.log('Cart data loaded:', this.products);
-  //   } else {
-  //     console.log('No cart data found in local storage.');
-  //     this.cartService.getProducts()
-  //       .subscribe(res => {
-  //         this.products = this.getUniqueProducts(res);
-  //         this.grandTotal = this.cartService.getTotalPrice();
-  //       });
-  //   }
-  // }
-  
-  // saveCartData(): void {
-  //   localStorage.setItem('cart', JSON.stringify(this.products));
-  //   console.log('Cart data saved:', this.products);
-  // }
 
   removeItem(item: any): void {
-    console.log('item', item);
     this.cartService.removeCartItem(item);
-    //this.saveCartData();
   }
 
   emptyCart(): void {
     this.cartService.removeAllCartItem();
-    //this.saveCartData();
   }
 
   incrementQuantity(item: any): void {
     this.cartService.incrementQuantity(item);
     this.updateUniqueProducts();
     this.cartService.addToCart(item);
-    //this.saveCartData();
   }
 
   decrementQuantity(item: any): void {
     this.cartService.decrementQuantity(item);
     this.updateUniqueProducts();
     this.cartService.removeCartItem(item);
-    //this.saveCartData();
   }
 
   private getUniqueProducts(products: any[]): any[] {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
-
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,11 +14,13 @@ export class LoginComponent implements OnInit {
 
  
 
-  constructor(private formBuilder : FormBuilder, private authService : AuthenticationService, private router: Router) {}
+  constructor(private formBuilder : FormBuilder, private authService : AuthenticationService, private router: Router, private msgService: MessageService) {
+
+  }
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
+      password: ['', [Validators.required]],
     })
   }
 
@@ -27,24 +29,34 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    // const storedData = localStorage.getItem('user_key');
-    // console.log('storedData', storedData);
-    // if(storedData){
-    //   const storeduserData = JSON.parse(storedData);
-    //   console.log(storeduserData.email);
-      
-    // }
-    // else{
-    //   console.log('not updated stored data');
-    // }
-    const userEmail = this.loginForm.value.email;
-    const userPassword = this.loginForm.value.password;
+    // const userEmail = this.loginForm.value.email;
+    // const userPassword = this.loginForm.value.password;
 
-    if (this.authService.authenticate(userEmail, userPassword)) {
-      this.router.navigateByUrl("/products");
-    } else {
-      alert('Invalid email or password');
-    }
+    // if (this.authService.authenticate(userEmail, userPassword)) {
+    //   this.router.navigateByUrl("/products");
+    // } else {
+    //   alert('Invalid email or password');
+    // }
+    const {email, password} = this.loginForm.value;
+    this.authService.getUserByEmail(email as string).subscribe(
+      res =>{
+        if(res.length > 0 && res[0].password === password){
+          alert('login details correct');
+          this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Login Successfully' });
+          //this.router.navigateByUrl("/products");
+          this.router.navigate(["/products"]);
+          console.log('login')
+        }
+        else{
+          this.msgService.add({ severity: 'error', summary: 'Error', detail: 'Email or Password incorrect' });
+          
+        }
+      },
+      err =>{
+        console.log(err)
+        this.msgService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      }
+    )
   }
 
 }

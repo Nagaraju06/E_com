@@ -73,10 +73,6 @@
 }
 
 .cart-card{
-    /* position: absolute;
-    top: -14px;
-    right: 257px;
-    z-index: 9999; */
     position: fixed;
     top: 60px;
     right: 232px;
@@ -92,9 +88,6 @@
 .checkout-card{
     height: 50vh;
     overflow-y: scroll;
-    /* overflow-y: scroll;
-    overflow-x: hidden;
-    width: 83%; */
 }
 
 
@@ -115,15 +108,6 @@
     border-radius: 5px;
     color: #FFFFFF;
 }
-
-/* .checkout-card .card{
-    width: 98%;
-} */
-
-/* .price-card .card{
-    width: 90%;
-} */
-
 .item-card{
     overflow: hidden;
     display: grid;

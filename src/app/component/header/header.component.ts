@@ -41,11 +41,9 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = this.authService.isLoggedIn();
     if(this.isLoggedIn === true){
       const userInfo = this.authService.getUserInfo();
-      console.log(userInfo);
       if(userInfo){
         this.userFirstName = userInfo.firstName;
         this.profilePictureBase64 = userInfo.profilePicture;
-        console.log('Profile Picture Base64:', this.profilePictureBase64);
       }
     }
     
@@ -67,12 +65,11 @@ export class HeaderComponent implements OnInit {
 
   search(event:any){
     this.searchTerm = (event.target as HTMLInputElement).value;
-    console.log(this.searchTerm);
     this.cartService.search.next(this.searchTerm);
+    
   }
 
   removeItem(item: any): void {
-    console.log('item', item);
     this.cartService.removeCartItem(item);
     //this.saveCartData();
   }

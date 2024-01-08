@@ -50,9 +50,4 @@ export class CustomvalidationService {
       }, 1000);
     });
   }
-
-  validateUserName(userName: string) {
-    const UserList = ['ankit', 'admin', 'user', 'superuser'];
-    return (UserList.indexOf(userName) > -1);
-  }
 }

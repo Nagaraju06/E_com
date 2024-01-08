@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 mb-3">
+                        <!-- <div class="col-lg-6 mb-3">
                             <div>
                                 <label for="profile">Profile Picture</label>
                                 <input type="file" class="form-control" [class.is-invalid]="f.profile.errors && f.profile.touched" formControlName="profile" placeholder="Upload Profile Pic" id="profile" name="profile" (change)="onFileSelected($event)" />
@@ -72,10 +72,10 @@
                                     <div *ngIf="f.profile.errors.required">Profile pic required</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div>
-                        <button class="btn btn-primary w-100">Sign Up</button>
+                        <button type="submit" class="btn btn-primary w-100" >Sign Up</button>
                     </div>
                 </form>
                 <p class="text-center mt-2"><span>Already have an account</span><a
