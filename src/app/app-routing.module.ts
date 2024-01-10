@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: "signup", component: SignupComponent},
   {path: "forgotPassword", component: ForgotpasswordComponent},
   {path:'products', component: ProductsComponent},
-  {path:'cart', component: CartComponent, canActivate: [authGuard]}
+  {path:'cart', component: CartComponent}
 ];
 
 @NgModule({

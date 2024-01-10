@@ -44,43 +44,69 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  onSubmit(){
-    const postData = {...this.registerForm.value }
+  // onSubmit(){
+  //   const postData = {...this.registerForm.value }
+  //   delete postData.confirmPassword;
+  //   this.authService.registerUser(postData as User).subscribe(
+  //     res =>{
+  //       console.log(res);
+  //       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Successfully' });
+  //       this.registerForm.reset()
+  //       this.router.navigateByUrl('/login');
+  //     },
+  //     err => {
+  //       console.log(err);
+  //       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+  //     }
+  //   )
+
+  //   Object.values(this.registerForm.controls).forEach((control:any) =>{
+  //     control.markAsTouched();
+  //   });
+
+  //   if(this.registerForm.invalid){
+  //     return
+  //   }
+
+  //   const userCredentials = {
+  //     ...this.registerForm.value,
+  //     profilePicture: this.profilePictureBase64 || 'cart.svg'
+  //   };
+  //   console.log(this.profilePictureBase64);
+  //   this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
+    
+  //   localStorage.setItem('user_credentials', JSON.stringify(this.registerForm.value, null, 4));
+  //   console.log(JSON.stringify(this.registerForm.value, null, 4));
+  //   this.registerForm.reset();
+  //   this.router.navigateByUrl('/login');
+  // }
+  onSubmit() {
+    Object.values(this.registerForm.controls).forEach((control: any) => {
+      control.markAsTouched();
+    });
+
+    // if (this.registerForm.invalid) {
+    //   return console.log('form data is invalid');
+    // }
+    
+      const postData = { ...this.registerForm.value };
     delete postData.confirmPassword;
+  
     this.authService.registerUser(postData as User).subscribe(
-      res =>{
+      res => {
         console.log(res);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Successfully' });
-        this.registerForm.reset()
+        this.registerForm.reset();
         this.router.navigateByUrl('/login');
       },
       err => {
         console.log(err);
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
-    )
-
-    Object.values(this.registerForm.controls).forEach((control:any) =>{
-      control.markAsTouched();
-    });
-
-    if(this.registerForm.invalid){
-      return
-    }
-
-    const userCredentials = {
-      ...this.registerForm.value,
-      profilePicture: this.profilePictureBase64 || 'cart.svg'
-    };
-    console.log('profilePicture', userCredentials.profilePicture);
-    console.log(this.profilePictureBase64);
-    this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
+    );
     
-    localStorage.setItem('user_credentials', JSON.stringify(this.registerForm.value, null, 4));
-    console.log(JSON.stringify(this.registerForm.value, null, 4));
-    this.registerForm.reset();
-    this.router.navigateByUrl('/login');
   }
+  
   
 
 }

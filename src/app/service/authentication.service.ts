@@ -16,15 +16,15 @@ export class AuthenticationService {
     return !!localStorage.getItem('user_credentials');
   }
 
-  // authenticate(email:string, password: string): boolean {
-  //   const storedCredentials = localStorage.getItem("user_credentials");
+  authenticate(email:string, password: string): boolean {
+    const storedCredentials = localStorage.getItem("user_credentials");
 
-  //   if(storedCredentials){
-  //     const userCredentials = JSON.parse(storedCredentials);
-  //     return email === userCredentials.email && password === userCredentials.password;
-  //   }
-  //   return false;
-  // }
+    if(storedCredentials){
+      const userCredentials = JSON.parse(storedCredentials);
+      return email === userCredentials.email && password === userCredentials.password;
+    }
+    return false;
+  }
 
   registerUser(userDetails: User) {
     return this.http.post(`${this.baseUrl}/users`, userDetails);

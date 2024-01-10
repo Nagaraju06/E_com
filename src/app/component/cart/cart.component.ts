@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class CartComponent implements OnInit {
   public products: any = [];
   public grandTotal!: number;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router, private msgService: MessageService) { }
 
   ngOnInit(): void {
     this.cartService.getProducts()
@@ -65,5 +67,11 @@ export class CartComponent implements OnInit {
   private updateUniqueProducts(): void {
     this.products = this.getUniqueProducts(this.cartService.cartItemList);
     this.grandTotal = this.cartService.getTotalPrice();
+  }
+
+  orderPlace(){
+    this.router.navigateByUrl('products');
+    this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Order Placed Successfully' });
+    this.emptyCart();
   }
 }

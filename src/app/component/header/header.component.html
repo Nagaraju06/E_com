@@ -3,46 +3,48 @@
         <div class="d-flex align-items-center">
                 <i class="fa-solid fa-truck-fast cursor-pointer logo-svg"></i>&nbsp;&nbsp;
                 <span class="logo-title cursor-pointer" routerLink="/products">Flipkart</span>
+                <form autocomplete="off">
             <div class="input-group input-group-merge form-password-toggle mx-5">
                 <input type="text" class="form-control" id="basic-default-search" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search Product"
                     aria-describedby="basic-default-search" />
                 <span class="input-group-text cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></span>
             </div>
+                </form>
         </div>
         <div class="d-flex align-items-center">
-            <div class="position-relative me-4" *ngIf="isLoggedIn">
+            <div class="position-relative me-4">
                 <span class="cart-icon cursor-pointer"  (click)="toggleCartCard()">
                     <img src="../../../assets/images/cart.svg" alt="cart" />
                 </span>
                 <span class="cart-count">{{totalItem}}</span>
             </div>
             
-            <div class="dropdown" *ngIf="isLoggedIn">
-                <a class="nav-link dropdown-toggle" href="#" *ngIf="isLoggedIn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <!-- {{ userFirstName }} -->
-                    <img [src]="profilePictureBase64 ? profilePictureBase64 : '../../../assets/images/profile-header.png'"  alt="Profile Picture" height="40" width="40" *ngIf="isLoggedIn" />
+                    <img [src]="profilePictureBase64 ? profilePictureBase64 : '../../../assets/images/profile-header.png'"  alt="Profile Picture" height="40" width="40" />
                   </a>
-                  <ul class="dropdown-menu" *ngIf="isLoggedIn">
+                  <ul class="dropdown-menu" >
                     <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
                   </ul>
                 </div>
         </div>
     </div>
     <ng-container *ngIf="products.length != 0">
-        <div class="card cart-card" *ngIf="isCartCardOpen">
+        <div class="card cart-card" *ngIf="isCartCardOpen" #cartCard>
             <div class="card-top">
                 <div class="card-header">
                     <h4 class="card-title">My Cart</h4>
                 </div>
               <div class="card-body">
                 <div class="checkout-card">
-                    <div class="card item-card" *ngFor="let item of products; let i = index">
+                    <div class="card item-card mb-2" *ngFor="let item of products; let i = index">
                         <div class="item-img">
                             <img src='{{item.image}}' alt="" width="120" />
                         </div>
                         <div class="card-body">
-                            <h5>{{item.title}}</h5>
-                            <p>{{item.description}}</p>
+                            <h5 class="notification-cart-title">{{item.title}}</h5>
+                            <p class="notification-cart-desc">{{item.description}}</p>
                             <div>
                                 <button class="decrementBtn" (click)="decrementQuantity(item)">-</button>&nbsp;&nbsp;&nbsp;
                                 {{item.quantity}}&nbsp;&nbsp;&nbsp;
@@ -67,7 +69,7 @@
               </div>
               <div class="card-footer">
                 <div>
-                    <button class="btn btn-primary" routerLink="cart">Checkout</button>
+                    <button class="btn btn-primary" [routerLink]="['/cart']">Checkout</button>
                 </div>
               </div>
             </div>

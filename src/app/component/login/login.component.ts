@@ -41,11 +41,9 @@ export class LoginComponent implements OnInit {
     this.authService.getUserByEmail(email as string).subscribe(
       res =>{
         if(res.length > 0 && res[0].password === password){
-          alert('login details correct');
           this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Login Successfully' });
           //this.router.navigateByUrl("/products");
           this.router.navigate(["/products"]);
-          console.log('login')
         }
         else{
           this.msgService.add({ severity: 'error', summary: 'Error', detail: 'Email or Password incorrect' });

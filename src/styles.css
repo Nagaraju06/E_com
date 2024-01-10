@@ -71,3 +71,77 @@ a:hover {
     border-color: #CA0000;
     box-shadow: none;
 }
+
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    color: #333333;
+    background-color: #fefefe;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.card-footer {
+    padding: 0.5rem 1rem;
+    color: #333333;
+    background-color: #fefefe;
+    border-top: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+@media (max-width: 992px) {
+    .navbar-backgroundColor {
+        padding: 8px 1rem;
+    }
+
+    .logo-svg {
+        font-size: 1.2rem;
+    }
+
+    .logo-title {
+        font-size: 1rem;
+    }
+
+    .input-group-merge {
+        margin-right: 1rem;
+    }
+
+    .cart-card {
+        width: 70%;
+        right: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-backgroundColor {
+        padding: 8px 0.5rem;
+    }
+
+    .logo-svg {
+        font-size: 1.1rem;
+    }
+
+    .logo-title {
+        font-size: 0.9rem;
+    }
+
+    .input-group-merge {
+        display: none; 
+    }
+
+    .test .input-group-merge {
+        display: block; 
+    }
+
+    .cart-card {
+        width: 90%;
+        right: 5%;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    .cart-count{
+        top: -4px !important;
+        right: -7px !important;
+    }
+}

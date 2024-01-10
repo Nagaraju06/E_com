@@ -19,19 +19,6 @@ export class HeaderComponent implements OnInit {
   public grandTotal!: number;
   constructor(private cartService: CartService, private authService: AuthenticationService){}
 
-  // @HostListener('document:click', ['$event'])
-  // clickOutsideCart(event: Event) {
-  //   // Check if the clicked element is outside the cart card
-  //   if (!this.isClickInsideCartCard(event)) {
-  //     this.isCartCardOpen = false;
-  //   }
-  // }
-
-  // private isClickInsideCartCard(event: Event): any {
-  //   const cartCardElement = document.querySelector('.cart-card');
-  //   return cartCardElement && cartCardElement.contains(event.target as Node);
-  // }
-
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
@@ -66,7 +53,6 @@ export class HeaderComponent implements OnInit {
   search(event:any){
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.cartService.search.next(this.searchTerm);
-    
   }
 
   removeItem(item: any): void {
